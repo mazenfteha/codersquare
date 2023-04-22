@@ -15,7 +15,7 @@ app.get('/posts',(req,res)=>{
     res.send({ posts })
 });
 
-app.post('/posts',(req,res)=>{
+app.post('/posts',(req,res)=>{ 
     const post = req.body;
     posts.push(post);
     res.status(201).json('send data');
