@@ -17,7 +17,7 @@ export class InMemoryDatastore implements Datastore {
         return this.users.find(u => u.username === email)
 
     }
-    listPost(): Post[] {
+    listPosts(): Post[] {
         return this.posts;
     }
     createPost(post: Post): void {
