@@ -1,5 +1,6 @@
 import express, { ErrorRequestHandler, RequestHandler } from 'express';
 import { createPostHandler, listPostHandler } from './handlers/postHandler';
+import asyncHandler from 'express-async-handler';
 const app = express();
 app.use(express.json());
 
@@ -16,8 +17,8 @@ const errHandler: ErrorRequestHandler =(err, req, res, next) =>{
 }
 app.use(errHandler)
 
-app.get('/v1/posts',listPostHandler);
-app.post('/v1/posts',createPostHandler);
+app.get('/v1/posts',asyncHandler,listPostHandler);
+app.post('/v1/posts',asyncHandler,createPostHandler);
 
 app.listen(3000,()=>{
     console.log('app running')
