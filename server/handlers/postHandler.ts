@@ -5,13 +5,13 @@ import crypto from 'crypto'
 
 
 
-export const listPostHandler: ExpressHandler<{}, {}> = (req,res)=>{
-    res.send({ posts: db.listPosts() })
+export const listPostHandler: ExpressHandler<{}, {}> = async (req,res)=>{
+    res.send({ posts: await db.listPosts() })
 }
 
 
 
-export const createPostHandler : ExpressHandler<CreatePostRequest,CreatePostResponse> = (req,res)=>{ 
+export const createPostHandler : ExpressHandler<CreatePostRequest,CreatePostResponse> = async (req,res)=>{ 
     if(!req.body.title || !req.body.url || !req.body.userId ){
         return res.sendStatus(400);
     }
@@ -22,6 +22,6 @@ export const createPostHandler : ExpressHandler<CreatePostRequest,CreatePostResp
         url: req.body.url,
         userId: req.body.userId,
     }
-    db.createPost(post);
+    await db.createPost(post);
     res.status(201).json('Post created');
 }
