@@ -10,4 +10,8 @@ export interface Datastore extends UserDao, PostDao, LikeDao, CommentDao {
     
 }
 
-export const db = new InMemoryDatastore();
+export let db: Datastore;
+
+export async function initDb() {
+    db = new InMemoryDatastore();
+} 
