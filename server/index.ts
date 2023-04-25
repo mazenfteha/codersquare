@@ -4,7 +4,7 @@ import asyncHandler from 'express-async-handler';
 import { initDb } from './datastore';
 
 (async ()=> {
-    await initDb
+    await initDb()
     const app = express();
     app.use(express.json());
     
