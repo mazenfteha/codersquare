@@ -9,13 +9,14 @@ export class SqlDateStore implements Datastore {
     public async openDb() {
         // open the database
         const db = await sqliteOpen({
-            filename:path.join(__dirname,'codersquare.sqlite'),
+            filename:path.join(__dirname, 'codersquare.sqlite'),
             driver: sqlite3.Database
         })
 
         await db.migrate({
             migrationsPath:path.join(__dirname, 'migrations'),
         });
+        
         return this;
     }
     createUser(user: User): Promise<void> {
