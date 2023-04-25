@@ -3,7 +3,7 @@ import { RequestHandler } from "express";
 export interface User {
     id: string;
     firstName: string;
-    lirstName: string;
+    lastName: string;
     username: string;
     email: string;
     password: string;

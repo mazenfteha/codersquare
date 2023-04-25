@@ -1,10 +1,19 @@
-import { Post } from "./types";
+import { Post, User } from "./types";
 
 //Post APIs
 export type CreatePostRequest = Pick<Post, 'title'|'url'|'userId'>;
 export interface CreatePostResponse{}
 
-export interface ListPostsRequest{}
-export interface ListPostsResponse{
-    posts: Post[];
+// Comment APIs
+
+//like APIs
+
+//User APIs
+export type SignUpRequest = Pick<User,'email'|'firstName'|'lastName'|'username'|'password'>;
+export interface SignUpResponse {}
+
+export interface SignInRequest{
+    login: string; //username or email
+    password: string;
 }
+export type SignInResponse = Pick<User,'email'|'firstName'|'lastName'|'username'|'id'>;
