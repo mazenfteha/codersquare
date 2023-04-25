@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec npx ts-node ./index.ts"
+    "dev": "nodemon --exec npx ts-node ./server.ts"
   },
   "author": "",
   "license": "ISC",
