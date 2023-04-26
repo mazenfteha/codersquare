@@ -11,12 +11,15 @@ export class InMemoryDatastore implements Datastore {
         this.users.push(user);
         return Promise.resolve();
     }
+    getUserById(id: string): Promise<User | undefined> {
+        return Promise.resolve(this.users.find(u =>u.id ===id))
+    }
     getUserByEmail(email: string):Promise<User | undefined> {
         return Promise.resolve(this.users.find(u => u.email === email));
         
     }
-    getUserByUsername(email: string):Promise<User | undefined> {
-        return Promise.resolve(this.users.find(u => u.username === email));
+    getUserByUsername(username: string):Promise<User | undefined> {
+        return Promise.resolve(this.users.find(u => u.username === username));
 
     }
     listPosts():Promise< Post[]> {

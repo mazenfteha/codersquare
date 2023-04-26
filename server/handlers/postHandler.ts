@@ -5,7 +5,8 @@ import crypto from 'crypto'
 
 
 
-export const listPostHandler: ExpressHandler<{}, {}> = async (req,res)=>{
+export const listPostHandler: ExpressHandler<{}, {}> = async (req,res)=>
+{   
     res.send({ posts: await db.listPosts() })
 }
 
