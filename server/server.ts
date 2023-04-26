@@ -4,9 +4,13 @@ import { initDb } from './datastore';
 import { signInHandler, signUpHandler } from './handlers/authHandler';
 import { requestLoggerMiddleware } from './middleware/loggermiddleware';
 import { errHandler } from './middleware/errorhandlerMiddleware';
+import dotenv from 'dotenv'
 
 (async ()=> {
     await initDb()
+
+    dotenv.config();
+
     const app = express();
     app.use(express.json());
     
