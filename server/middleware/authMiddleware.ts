@@ -12,8 +12,11 @@ export const authMiddleware: ExpressHandler<any, any> = async (req, res, next)=>
         const payload = verifyJwt(token);
         const user = await db.getUserById(payload.userId)
         if(!user){
-            throw 'mot found';
+            throw 'not found';
         }
+
+        res.locals.userId =user.id
+
         next();
     } catch {
         return res.status(401).send({error: 'Bad token'});

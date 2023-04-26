@@ -1,7 +1,7 @@
 import { Post, User } from "./types";
 
 //Post APIs
-export type CreatePostRequest = Pick<Post, 'title'|'url'|'userId'>;
+export type CreatePostRequest = Pick<Post, 'title'|'url'>;
 export interface CreatePostResponse{}
 
 // Comment APIs
