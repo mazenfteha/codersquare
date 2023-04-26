@@ -19,6 +19,7 @@ import { authMiddleware } from './middleware/authMiddleware';
     app.use(errHandler)
     
     //public end points
+    app.get('/healthz', (req, res)=>res.send({ status: '✌️' }))
     app.post('/v1/signup',signUpHandler);
     app.post('/v1/signin',signInHandler);
     
@@ -28,7 +29,8 @@ import { authMiddleware } from './middleware/authMiddleware';
     app.get('/v1/posts',listPostHandler);
     app.post('/v1/posts',createPostHandler);
     
-    app.listen(3000,()=>{
+
+    app.listen( process.env.PORT || 3000,()=>{
         console.log('app running')
     });
 
